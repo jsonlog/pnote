@@ -1,6 +1,7 @@
 
 /public/uploads
-
+*.txt
+*.csv
 /node_modules
 /public/hot
 /public/storage
