@@ -99,12 +99,15 @@ class WhatController extends Controller
     
     //删除操作
     public function del(){
-        $value = $_REQUEST['ids'];
+        //获取到ajax传来的需要删除的id
+        $id = $_REQUEST['ids'];
+        //把传来的所有id改为数组形式  explode  字符串转数组
+        $str = explode(",",$id);
+        //利用循环将需要删除的id 一个一个进行执行sql；
+        foreach($str as $v){
+            DB::table('what')->where('id',"=","$v")->delete();
+        }
         
-        //指定需要操作的数据表
-        $db = DB::table('what');
-        //删除id为1的记录
-        $result = $db->where('id','=',$value)->delete();
-        return $result;
+        return true;
     }
 }
