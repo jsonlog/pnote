@@ -109,4 +109,5 @@
 
 		</tbody>
 	</table>
+	{{$data -> links()}}
 </html>
