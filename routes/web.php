@@ -19,4 +19,8 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'thing'],function(){//middleware
+    Route::get('what','Thing\WhatController@index');
+});
 Route::any('/thing/upload', 'Thing\UploadController@upload');
