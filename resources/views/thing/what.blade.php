@@ -599,7 +599,13 @@
         $.ajax({
             type: type,
             contentType:"application/json",
-            url: "/whats",
+            // header: {
+            //     "X-CSRF-TOKEN" : "{{csrf_token()}}",
+            // },
+            // headers: {
+            //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            // },
+            url: "/thing/whats"+"?_token={{csrf_token()}}",
             data: JSON.stringify(map), //$('#dataFrom').serialize(),
             success: function (data, status) {
                 if (status == "success") {
@@ -640,7 +646,7 @@
                 type: "delete",
                 // dataType: "json", //不需要返回值
                 contentType: "application/json",
-                url: "/whats"+"?ids="+ids.toString(),
+                url: "/thing/whats"+"?_token={{csrf_token()}}"+"&ids="+ids.toString(),
 <!--                data: JSON.stringify(ids),-->
                 success: function (data, status) {
                     if (status == "success") {

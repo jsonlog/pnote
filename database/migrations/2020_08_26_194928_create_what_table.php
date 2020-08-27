@@ -18,7 +18,7 @@ class CreateWhatTable extends Migration
             $table -> string('tag');
             $table -> string('subtag')->nullable();
             $table -> dateTime('now')->useCurrent();
-            $table -> dateTime('onwhen');
+            $table -> dateTime('onwhen')->nullable();
             $table -> string('who');
             $table -> string('inwhere');
             $table -> string('forwhy')->nullable();
@@ -32,7 +32,7 @@ class CreateWhatTable extends Migration
             $table -> string('comment')->nullable();
             $table -> string('source')->nullable();
             $table -> string('url')->nullable();
-            $table -> tinyInteger('opened');
+            $table -> tinyInteger('opened')->notNull();
             $table -> string('description')->nullable();
             
 //             $table->id();

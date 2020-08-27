@@ -21,6 +21,9 @@ Route::get('/thing/what', function () {
 });
 
 Route::group(['prefix' => 'thing'],function(){//middleware
-    Route::get('whats','Thing\WhatController@index');
+    Route::get('whats','Thing\WhatController@retrieve');
+    Route::post('whats','Thing\WhatController@create');
+    Route::put('whats','Thing\WhatController@update');
+    Route::delete('whats','Thing\WhatController@del');
 });
 Route::any('/thing/upload', 'Thing\UploadController@upload');
