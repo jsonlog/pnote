@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/posthome', 'PostController@index')->name('home');
+Route::resource('posts', 'PostController');
+Route::resource('users', 'UserHandleController');
+Route::resource('permissions', 'PermissionController');
+Route::resource('roles', 'RoleController');
+
 Route::get('/', function () {
     return view('welcome');
 });

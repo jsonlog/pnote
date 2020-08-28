@@ -102,12 +102,12 @@ class WhatController extends Controller
         //获取到ajax传来的需要删除的id
         $id = $_REQUEST['ids'];
         //把传来的所有id改为数组形式  explode  字符串转数组
-        $str = explode(",",$id);
+        $arr = explode(",",$id);
         //利用循环将需要删除的id 一个一个进行执行sql；
-        foreach($str as $v){
-            DB::table('what')->where('id',"=","$v")->delete();
-        }
-        
-        return true;
+//         foreach($arr as $v){
+//             DB::table('what')->where('id',"=","$v")->delete();
+//         }        
+//         return true;
+        return DB::table('what')->whereIn('id',$arr)->delete();
     }
 }
