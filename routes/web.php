@@ -29,6 +29,9 @@ Route::get('/', function () {
 Route::get('/thing/what', function () {
     return view('/thing/what');
 });
+Route::get('/layouts/app', function () {
+    return view('/layouts/app');//test
+});
 
 Route::group(['prefix' => 'thing'],function(){//middleware
     Route::get('whats','Thing\WhatController@retrieve');
