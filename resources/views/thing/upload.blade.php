@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -12,8 +12,12 @@
 
 <body>
 </body>
-<!-- <?php phpinfo(); ?> -->
-<!-- php require_once(‘abc.php’); -->
+<?php phpinfo(); ?>
+php require_once(‘abc.php’);
+</html> -->
+@extends('layouts.app')
+
+@section('content')
 	<form action="" method="post" enctype="multipart/form-data">
 		<!-- <p>姓名：<input type="text" name="name" value="" placeholder="请输入姓名"/></p>
 		<p>年龄：<input type="text" name="age" value="" placeholder="请输入年龄"/></p>
@@ -22,4 +26,4 @@
 		{{csrf_field()}}
 		<p><input type="submit" value="提交"/></p>
 	</form>
-</html>
+@endsection

@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
+    @extends('layouts.app')
+    @section('content')
+
+    <!-- <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>事件</title>
-    <script src="/https/cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>事件</title> -->
+    <!-- <script src="/https/cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/https/unpkg.com/bootstrap-table@1.15.2/dist/bootstrap-table.min.css">
     <script src="/https/unpkg.com/bootstrap-table@1.15.2/dist/bootstrap-table.min.js"></script>
@@ -15,54 +15,32 @@
     <link rel="stylesheet" href="/css/bootstrap-datetimepicker.css" media="screen">
     <script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <!--    <script type="text/javascript" src="https://raw.githack.com/smalot/bootstrap-datetimepicker/master/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>-->
-    <link rel="stylesheet" href="/layui/css/layui.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link rel="stylesheet" href="/layui/css/layui.css"> -->
     <link rel="stylesheet" href="/css/css.css"/>
-</head>
-<body class="layui-layout-body hold-transition skin-blue sidebar-mini">
-    <div class="layui-layout layui-layout-admin">
-        <div id="header">header</div>
-
-        <div class="layui-body">
-            <div class="wrapper">
-                <div class="content-wrapper">
-                    <section class="content">
-                        <div class="row">
-                            <div class="panel-body" style="padding-bottom:0px;">
-                                <div id="toolbar" class="btn-group">
-                                    <button id="addRow" type="button" class="btn  btn-success">
-                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
-                                    </button>
-                                    <button id="delete" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </div>
-                                <div class="box">
-                                    <div class="box-body">
-                                        <table id="table" data-response-handler="responseHandler">
-                                        </table>
-                                    </div>
+        <div class="wrapper">
+            <div class="content-wrapper">
+                <section class="content">
+                    <div class="row">
+                        <div class="panel-body" style="padding-bottom:0px;">
+                            <div id="toolbar" class="btn-group">
+                                <button id="addRow" type="button" class="btn  btn-success">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                                </button>
+                                <button id="delete" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-remove"></i> 删除
+                                </button>
+                            </div>
+                            <div class="box">
+                                <div class="box-body">
+                                    <table id="table" data-response-handler="responseHandler">
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
             </div>
         </div>
-
-    </div>
-</body>
-<script>
-    $("#header").load("/header.html #layui-header-side");
-</script>
-<script src="/layui/layui.js"></script>
-<script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-
-    });
-</script>
 <script>
     var add  = false;
     selections = [];
@@ -748,4 +726,4 @@
         // };
     }
 </script>
-</html>
+@endsection

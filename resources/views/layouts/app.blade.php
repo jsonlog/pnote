@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +8,22 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>IBREM</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    
+    <!-- Scripts -->
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+
+
+    <script src="/https/cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
@@ -33,9 +42,9 @@
                     <!-- Branding Image -->
 
 
-                    <a class="navbar-brand" href="http://ibrem.com.br/" target="_blank" title="Acessar o site oficial">
+                    <!-- <a class="navbar-brand" href="http://ibrem.com.br/" target="_blank" title="Acessar o site oficial">
                            <img src={{ asset('img/logo.jpg') }} alt="Acessar Home-Page" height="35" width="50"/>
-                    </a>
+                    </a> -->
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -47,7 +56,7 @@
                         
                         </li>
                         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"
-                         >Administrativo <span class="caret"></span></a>
+                         >register <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('register') }}"
@@ -63,77 +72,31 @@
                         </li>                       
 
                         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"
-                         >Avisos /Mensagens <span class="caret"></span></a>
+                         >post<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Oração do Dia
+                                        <a href="{{ route('posthome') }}" >
+                                            posthome
                                         </a>     
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Avisos Importantes
-                                        </a>                                         
+                                        <a href="/posts">posts</a>                                         
                                     </li>
                             </ul>                    
                         
                         </li>
 
                         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                         Cadastro <span class="caret"></span></a>
+                         RDBA <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Área
-                                        </a>     
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Setor
-                                        </a>  
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Célula
-                                        </a>                                         
+                                        <a href="/users">users</a>
+                                        <a href="/users">roles</a>  
+                                        <a href="/users">premissions</a>                 
                                     </li>
                             </ul>                    
                         
                         </li>
-
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"
-                         >Informações <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Onde Estamos
-                                        </a>     
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Ministérios
-                                        </a> 
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Células
-                                        </a>                                          
-                                        
-                                        <a href="{{ route('register') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Membros / Células
-                                        </a>                                          
-                                    </li>
-                            </ul>                    
-                        
-                        </li>
+                        <li><a href="/thing/what" >what </a>  
+                        <li><a href="/thing/upload" >upload </a>     
 
                     </ul>
 
@@ -158,7 +121,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Sair
+                                            logout
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -173,10 +136,9 @@
             </div>
         </nav>
 
-        @yield('content')
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
