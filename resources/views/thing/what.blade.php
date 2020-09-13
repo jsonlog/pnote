@@ -577,13 +577,10 @@
         $.ajax({
             type: type,
             contentType:"application/json",
-            // header: {
-            //     "X-CSRF-TOKEN" : "{{csrf_token()}}",
-            // },
-            // headers: {
-            //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            // },
-            url: "/thing/whats"+"?_token={{csrf_token()}}",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/thing/whats",//+"?_token={{csrf_token()}}",
             data: JSON.stringify(map), //$('#dataFrom').serialize(),
             success: function (data, status) {
                 if (status == "success") {
